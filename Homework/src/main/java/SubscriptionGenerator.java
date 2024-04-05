@@ -102,3 +102,4 @@ public class SubscriptionGenerator {
         return -1;
     }
 }
+// Partea cu threadurile, operatorul, si scrierea in fisier
