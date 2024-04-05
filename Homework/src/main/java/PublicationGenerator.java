@@ -1,5 +1,6 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
@@ -7,7 +8,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import org.json.*;
 
-public class Publisher implements Runnable{
+public class PublicationGenerator implements Runnable{
     private int numberOfMessages;
     private List<Publication> publications = new ArrayList<>();
 
@@ -25,7 +26,7 @@ public class Publisher implements Runnable{
     };
 
 
-    public Publisher(int numberOfMessages) {
+    public PublicationGenerator(int numberOfMessages) {
         this.numberOfMessages = numberOfMessages;
     }
 
@@ -90,20 +91,25 @@ public class Publisher implements Runnable{
     }
 
     private void writePublicationsToFile() throws IOException {
-        JSONArray jsonArray = new JSONArray();
+        ArrayList<String> results = new ArrayList<String>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.MM.yyyy");
+
         synchronized (publications) {
             for (Publication publication : publications) {
-                JSONObject json = new JSONObject();
-                json.put("company", publication.getCompany());
-                json.put("value", publication.getValue());
-                json.put("drop", publication.getDrop());
-                json.put("variation", publication.getVariation());
-                json.put("date", publication.getDate());
-                jsonArray.put(json);
+                String currentPublictationString = String.format("{(company,\"%s\");(value,%.2f);(drop,%.2f);(variation,%.2f);(date,%s)}\n", 
+                        publication.getCompany(),
+                        publication.getValue(),
+                        publication.getDrop(),
+                        publication.getVariation(),
+                        publication.getDate()
+                        );
+                results.add(currentPublictationString);
             }
         }
-        try (FileWriter file = new FileWriter("publications.json")) {
-            file.write(jsonArray.toString(2)); // Indented JSON for better readability
+        try (FileWriter file = new FileWriter("publications.txt")) {
+            for(String result : results){
+                file.write(result);
+            }
         }
     }
 }

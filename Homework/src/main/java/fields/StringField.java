@@ -1,3 +1,4 @@
+
 package fields;
 
 public class StringField extends Field {
