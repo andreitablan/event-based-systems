@@ -41,15 +41,15 @@ public class SubscriptionGenerator implements Runnable{
             int subscriptionCount,
             double equalOperatorFreq
     ) {
-        this.companyFreq = companyFreq/10;
-        this.valueFreq = valueFreq/10;
-        this.dropFreq = dropFreq/10;
-        this.variationFreq = variationFreq/10;
-        this.dateFreq = dateFreq/10;
+        this.companyFreq = companyFreq/100 * subscriptionCount;
+        this.valueFreq = valueFreq/100 * subscriptionCount;
+        this.dropFreq = dropFreq/100 * subscriptionCount;
+        this.variationFreq = variationFreq/100 * subscriptionCount;
+        this.dateFreq = dateFreq/100 * subscriptionCount;
         this.subscriptionCount = subscriptionCount;
 
         subscriptions = new Subscription[subscriptionCount];
-        this.equalOperatorFreq = equalOperatorFreq/10;
+        this.equalOperatorFreq = equalOperatorFreq/100;
 
         for(int i = 0; i < subscriptionCount; i++){
             subscriptions[i] = new Subscription();
@@ -77,8 +77,7 @@ public class SubscriptionGenerator implements Runnable{
     }
 
     private void generateDateFields(Random random) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.MM.yyyy");
-        double dateEqualNotUsed = equalOperatorFreq;
+        double dateEqualNotUsed = equalOperatorFreq * dateFreq;
         for(int i = 0; i < dateFreq; i++){
             int index = random.nextInt( subscriptionCount);
             if(subscriptions[index].getConditions().containsKey("date")){
@@ -87,7 +86,6 @@ public class SubscriptionGenerator implements Runnable{
             }
 
             if(dateEqualNotUsed > 0){
-                Date newDate = new Date();
                 subscriptions[index].addCondition("date", "=", dates[random.nextInt(dates.length)]);
                 dateEqualNotUsed--;
             } else {
@@ -97,7 +95,7 @@ public class SubscriptionGenerator implements Runnable{
     }
 
     private void generateVariationFields(Random random) {
-        double variationEqualNotUsed = equalOperatorFreq;
+        double variationEqualNotUsed = equalOperatorFreq * variationFreq;
         for(int i = 0; i < variationFreq; i++){
             int index = random.nextInt( subscriptionCount);
             if(subscriptions[index].getConditions().containsKey("variation")){
@@ -115,7 +113,7 @@ public class SubscriptionGenerator implements Runnable{
     }
 
     private void generateDropFields(Random random) {
-        double dropEqualNotUsed = equalOperatorFreq;
+        double dropEqualNotUsed = equalOperatorFreq * dropFreq;
         for(int i = 0; i < dropFreq; i++){
             int index = random.nextInt( subscriptionCount);
             if(subscriptions[index].getConditions().containsKey("drop")){
@@ -133,7 +131,7 @@ public class SubscriptionGenerator implements Runnable{
     }
 
     private void generateValueFields(Random random) {
-        double valueEqualNotUsed = equalOperatorFreq;
+        double valueEqualNotUsed = equalOperatorFreq * valueFreq;
         for(int i = 0; i < valueFreq; i++){
             int index = random.nextInt( subscriptionCount);
             if(subscriptions[index].getConditions().containsKey("value")){
@@ -151,7 +149,7 @@ public class SubscriptionGenerator implements Runnable{
     }
 
     private void generateCompanyFields(Random random) {
-        double companyEqualNotUsed = equalOperatorFreq;
+        double companyEqualNotUsed = equalOperatorFreq * companyFreq;
         for(int i = 0; i < companyFreq; i++) {
             int index = random.nextInt( subscriptionCount);
             if(subscriptions[index].getConditions().containsKey("company")){
@@ -182,7 +180,7 @@ public class SubscriptionGenerator implements Runnable{
     @Override
     public void run() {
         long startTime = System.currentTimeMillis();
-        ExecutorService executor = Executors.newFixedThreadPool(2);
+        ExecutorService executor = Executors.newFixedThreadPool(50);
         Random random = new Random();
         executor.submit(() -> {
             generateCompanyFields(random);

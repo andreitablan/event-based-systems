@@ -14,7 +14,7 @@ public class Main {
 
         int number = scanner.nextInt();
         PublicationGenerator publications = new PublicationGenerator(10000);
-        SubscriptionGenerator subscriptionGenerator = new SubscriptionGenerator(90.0, 60.0, 10.0, 70.0, 50.0, 10, 70.0);
+        SubscriptionGenerator subscriptionGenerator = new SubscriptionGenerator(90.0, 60.0, 10.0, 70.0, 50.0, 100, 70.0);
 
         switch(number){
             case 1:

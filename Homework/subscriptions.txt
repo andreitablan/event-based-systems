@@ -1,10 +1,100 @@
-{(company,=,Apple); (date,=,11.11.2031); }
-{(company,=,Oracle); (value,=,0.5638728749785379); (variation,=,0.7658835854414603); }
-{(company,=,Slack); (date,=,1.01.2033); (value,=,0.43302190122666784); (variation,=,0.4545638016855642); }
-{(company,=,Twitter); (variation,=,0.5694877487743483); }
-{(company,<,Intel); (variation,=,0.5636468835766095); }
-{(company,=,Twitter); (date,=,7.07.2039); (value,=,0.19520579576171515); }
-{(date,=,9.09.2029); (variation,=,0.05680189399179181); }
-{(company,=,Microsoft); (drop,=,0.9445784159970789); (value,=,0.9376661450628649); (variation,=,0.4583858310547946); }
-{(company,=,Zoom); (date,=,8.08.2040); (value,=,0.6537755817757944); }
-{(company,<,Nvidia); (value,=,0.4678113682425932); (variation,=,0.028697162238517815); }
+{(company,=,Facebook); (date,=,4.04.2024); (value,=,0.5612582795747221); (variation,>=,0.008156821122577651); }
+{(company,=,Salesforce); (date,=,10.10.2030); (variation,=,0.09874551504384776); }
+{(company,=,Qualcomm); (value,>,0.43565580741077337); (variation,=,0.17246489454277847); }
+{(company,=,Oracle); (variation,>,0.05324322107163049); }
+{(company,=,Facebook); (drop,=,0.18340822507583943); }
+{(date,=,4.04.2024); (value,<=,0.5670328568542701); }
+{(company,=,Intel); (date,<=,0.48968128883857787); (variation,=,0.36079530693099326); }
+{(company,=,Twitter); (date,=,11.11.2031); (value,=,0.8462305063100426); }
+{(company,<=,Adobe); (date,=,6.06.2038); (variation,=,0.17785216098913426); }
+{(company,=,Facebook); (drop,=,0.8373105204070204); }
+{(company,=,Qualcomm); (date,=,7.07.2039); }
+{(company,>=,Amazon); (value,>=,0.34840281394712225); (variation,=,0.8840493983031021); }
+{(company,>=,Qualcomm); (value,=,0.3670709895158253); (variation,=,0.9977877114797014); }
+{(company,>=,Microsoft); (date,=,11.11.2031); (value,=,0.46889277969651044); (variation,=,0.34448515652877754); }
+{(company,=,Salesforce); (drop,=,0.03667954954726804); (value,=,0.5426895812229398); (variation,=,0.4844825986289012); }
+{(company,>=,Qualcomm); (date,>,0.6493982429219541); (value,=,0.922757866269882); (variation,=,0.3502042848550183); }
+{(company,<=,Qualcomm); (value,<=,0.24889897058424937); (variation,=,0.8371017248431812); }
+{(company,<,Facebook); (value,=,0.35174442488674784); (variation,<=,0.6846796892573106); }
+{(company,=,Slack); (value,=,0.2979863300870228); (variation,=,0.8146390108482378); }
+{(company,=,Spotify); (value,=,0.6407387785750828); (variation,=,0.5529665772247012); }
+{(company,=,Cisco); (date,=,7.07.2027); }
+{(company,=,Google); (date,=,3.03.2035); (drop,=,0.34214961955582024); (value,=,0.30592956927303594); (variation,=,0.5334688306513886); }
+{(company,=,IBM); (value,=,0.08104571482390854); (variation,=,0.45819891758454456); }
+{(company,=,Netflix); (value,=,0.912530813458985); (variation,=,0.9386373958232196); }
+{(company,=,Amazon); (variation,>=,0.49567915323081535); }
+{(company,=,Spotify); (variation,>,0.14652017891127955); }
+{(company,=,Adobe); (date,=,7.07.2027); (drop,=,0.834031680168303); (variation,=,0.4250355153269637); }
+{(company,=,Apple); (date,=,4.04.2036); (drop,=,0.33649348202766216); (value,=,0.3084038807935776); (variation,=,0.22635463341289985); }
+{(company,=,Facebook); (value,=,0.907138236909988); (variation,=,0.647366797371192); }
+{(company,=,Twitter); (date,=,8.08.2028); (variation,=,0.6550445564488322); }
+{(company,=,Microsoft); (date,=,8.08.2040); (value,<=,0.9487974677452651); (variation,=,0.4524555990762087); }
+{(company,=,AMD); (value,=,0.3106487834392312); (variation,=,0.7025393875621089); }
+{(company,=,Facebook); (value,=,0.46985931018792615); }
+{(company,=,Oracle); (date,=,10.10.2030); (value,=,0.5116394323664085); }
+{(company,=,AMD); (value,<=,0.2668846901508334); }
+{(company,=,Cisco); }
+{(company,=,Slack); (value,=,0.07625314354893342); (variation,>,0.10935691522462865); }
+{(company,=,Twitter); (value,=,0.22705910708740173); }
+{(company,=,Salesforce); (date,>=,0.8329589316129665); (value,<,0.7061802537959552); (variation,=,0.7071509547702138); }
+{(company,=,Twitter); (value,=,0.3303797125083431); (variation,=,0.9231806509701007); }
+{(company,=,Intel); (date,<=,0.35290771024286904); (variation,=,0.97675962858799); }
+{(company,>,Nvidia); (date,<,0.45990306534573844); (drop,>=,0.04341510871150178); (variation,=,0.4319629002204306); }
+{(date,>=,0.19404060921917066); }
+{(company,=,Salesforce); (date,=,4.04.2036); (value,=,0.40783278003763357); (variation,>=,0.7407235379567899); }
+{(company,=,Intel); (date,=,12.12.2032); (value,=,0.6777613919285195); (variation,=,0.828828158606062); }
+{(company,<=,Google); (date,=,0.59152489128368); (variation,=,0.9223634149896387); }
+{(company,=,Netflix); (date,=,5.05.2025); (value,=,0.6890596431284085); }
+{(company,=,Qualcomm); (variation,=,0.8480567337859868); }
+{(company,=,Cisco); (value,=,0.21771807283524414); }
+{(company,=,Google); (date,=,0.40482426432175056); (drop,=,0.04642676413348368); (value,=,0.6880494037332939); (variation,=,0.3455671261396228); }
+{(date,=,8.08.2040); (variation,=,0.3322450607658278); }
+{(company,=,Netflix); (variation,=,0.34251527651956926); }
+{(company,=,Netflix); (value,=,0.39127508452516857); }
+{(company,<,Zoom); (date,=,6.06.2026); (drop,=,0.15104658597005627); (value,<,0.6705311465041183); }
+{(company,=,Google); (value,=,0.7400784483750006); (variation,=,0.7227328647348852); }
+{(company,=,Spotify); (date,>=,0.13540266067383933); (variation,=,0.20968737435568174); }
+{(company,=,Adobe); (date,=,5.05.2025); (value,>,0.23094499471884422); }
+{(company,<=,Twitter); (value,=,0.25510899749864224); (variation,<=,0.5520275485023709); }
+{(company,<=,Oracle); }
+{(company,=,Salesforce); (value,>=,0.9158044520645712); (variation,=,0.9280867551279559); }
+{(date,=,6.06.2026); (variation,=,0.4000789816024757); }
+{}
+{(company,=,IBM); (date,=,4.04.2036); (value,=,0.21467536788579267); (variation,=,0.5638977862395784); }
+{(value,=,0.9500406601690485); (variation,=,0.7176816792867666); }
+{(company,>,Adobe); (date,=,9.09.2041); (value,=,0.2564449792095841); (variation,<,0.14250606236176722); }
+{(company,=,Apple); (variation,=,0.37244177024214054); }
+{(company,<,Cisco); (value,=,0.622051756087932); (variation,<,0.1013715669117139); }
+{(variation,<,0.6055796422477691); }
+{(company,=,Apple); (date,=,3.03.2023); (drop,=,0.4908595945423938); (value,<,0.5320914450631968); (variation,=,0.5565350859050844); }
+{(company,=,Microsoft); (date,=,3.03.2035); (value,=,0.7560664535502479); (variation,<,0.6884097846548572); }
+{(company,=,Netflix); (date,<=,0.0888648227294615); (variation,<=,0.8788523751645827); }
+{(company,>,Qualcomm); (date,=,6.06.2038); (value,=,0.39281588824548264); (variation,=,0.367029066026788); }
+{(company,=,Slack); (variation,>,0.6658192835692704); }
+{(company,=,AMD); (date,=,7.07.2039); (value,=,0.3557457375484311); }
+{(company,=,Oracle); (value,>,0.8367421310408707); }
+{(company,=,Facebook); (date,=,6.06.2038); (variation,=,0.8452769278052035); }
+{(variation,=,0.07828625481014972); }
+{(company,=,Tesla); (value,=,0.49616595690052356); (variation,=,0.39046807946413953); }
+{(date,=,2.02.2022); }
+{(company,=,Twitter); (value,=,0.26098782508072604); }
+{(company,=,Twitter); (date,=,4.04.2036); (value,=,0.5853792414668263); (variation,=,0.6400225765592694); }
+{(company,=,Netflix); }
+{(company,<=,AMD); (date,=,8.08.2028); (value,=,0.6016317700663428); (variation,<=,0.7643621792264285); }
+{(company,=,Amazon); (date,=,6.06.2026); (value,=,0.8484019194832859); }
+{(company,=,IBM); (value,=,0.29940085410005635); }
+{(company,=,Cisco); (date,=,7.07.2039); (variation,=,0.8481355970410961); }
+{(company,=,Apple); (date,<=,0.7650745869354683); (value,>,0.6205932266866385); (variation,<,0.45293871731603796); }
+{(company,<=,Facebook); (date,=,1.01.2033); }
+{(company,=,Tesla); (date,>,0.05657045078917955); (value,=,0.06280417670672267); (variation,=,0.28876595075893585); }
+{(company,<=,Spotify); }
+{(company,=,Intel); (date,>,0.14807142427416864); (variation,=,0.37200605364908945); }
+{(company,=,Amazon); (variation,=,0.4510255140435716); }
+{(company,=,Slack); (date,>=,0.9273102951921066); (value,=,0.714459995203199); (variation,=,0.37336537591225594); }
+{(company,=,Slack); (value,=,0.7598223786611987); }
+{(date,=,8.08.2040); (value,>=,0.2829736823142833); (variation,=,0.2182509776344791); }
+{(company,=,Slack); (date,<=,0.20865689395236886); (value,>,0.8006536376904793); (variation,=,0.3781364241708516); }
+{(company,=,Amazon); (variation,=,0.999904148124033); }
+{(company,=,IBM); (value,=,0.6805779675638508); (variation,=,0.4372036169040121); }
+{(company,=,Facebook); (variation,=,0.04549337046009516); }
+{(company,=,Intel); }
