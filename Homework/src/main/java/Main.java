@@ -2,45 +2,56 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException, IOException {
-        Scanner scanner = new Scanner(System.in);
-        int number;
+    private static final Scanner scanner = new Scanner(System.in);
 
+    public static void main(String[] args) throws IOException {
+        int publicationCount = getInput("Enter the number of publications: ");
+        int subscriptionCount = getInput("Enter the number of subscriptions: ");
+        double companyFrequency = getInput("Enter company frequency: ");
+        double valueFrequency = getInput("Enter value frequency: ");
+        double dropFrequency = getInput("Enter drop frequency: ");
+        double variationFrequency = getInput("Enter variation frequency: ");
+        double dateFrequency = getInput("Enter date frequency: ");
+        double equalOperatorFrequency = getInput("Enter the equal operator frequency: ");
+
+        int option;
         do {
-            System.out.print("0 to exit\n");
-            System.out.print("1 to generate publications without threads\n");
-            System.out.print("2 to generate publications with threads\n");
-            System.out.print("3 to generate subscriptions without threads\n");
-            System.out.print("4 to generate subscriptions with threads\n");
-            System.out.println("Enter a number: ");
+            option = getInput("0 to exit\n1 to generate publications without threads\n2 to generate publications with threads\n3 to generate subscriptions without threads\n4 to generate subscriptions with threads\nEnter a number: ");
+            executeOption(option, publicationCount, subscriptionCount, companyFrequency, valueFrequency, dropFrequency, variationFrequency, dateFrequency, equalOperatorFrequency);
+        } while (option != 0);
+    }
 
-            number = scanner.nextInt();
-            PublicationGenerator publicationGenerator = new PublicationGenerator(1000000);
-            SubscriptionGenerator subscriptionGenerator = new SubscriptionGenerator(90.0, 60.0, 10.0, 70.0, 50.0, 1000000, 70.0);
+    private static int getInput(String prompt) {
+        System.out.println(prompt);
+        return scanner.nextInt();
+    }
 
-            switch(number){
-                case 0:
-                    System.out.println("Exiting...");
-                    break;
-                case 1:
-                    System.out.println("Generating publications without threads");
-                    publicationGenerator.runWithoutThreads();
-                    break;
-                case 2:
-                    System.out.println("Generating publications with threads");
-                    publicationGenerator.run();
-                    break;
-                case 3:
-                    System.out.println("Generating subscriptions without threads");
-                    subscriptionGenerator.generateSubscriptions();
-                    break;
-                case 4:
-                    System.out.println("Generating subscriptions with threads");
-                    subscriptionGenerator.run();
-                    break;
-                default:
-                    System.out.println("Wrong input, options are: 0 - exit, 1,2,3,4 the others");
-            }
-        } while (number != 0);
+    private static void executeOption(int option, int publicationCount, int subscriptionCount, double companyFrequency, double valueFrequency, double dropFrequency, double variationFrequency, double dateFrequency, double equalOperatorFrequency) throws IOException {
+        PublicationGenerator publicationGenerator = new PublicationGenerator(publicationCount);
+        SubscriptionGenerator subscriptionGenerator = new SubscriptionGenerator(companyFrequency, valueFrequency, dropFrequency, variationFrequency, dateFrequency, subscriptionCount, equalOperatorFrequency);
+
+        switch(option){
+            case 0:
+                System.out.println("Exiting...");
+                break;
+            case 1:
+                System.out.println("Generating publications without threads");
+                publicationGenerator.runWithoutThreads();
+                break;
+            case 2:
+                System.out.println("Generating publications with threads");
+                publicationGenerator.run();
+                break;
+            case 3:
+                System.out.println("Generating subscriptions without threads");
+                subscriptionGenerator.generateSubscriptions();
+                break;
+            case 4:
+                System.out.println("Generating subscriptions with threads");
+                subscriptionGenerator.run();
+                break;
+            default:
+                System.out.println("Wrong input, options are: 0 - exit, 1,2,3,4 the others");
+        }
     }
 }

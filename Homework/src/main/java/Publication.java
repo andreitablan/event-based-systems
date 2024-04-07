@@ -1,5 +1,3 @@
-import java.util.Map;
-
 public class Publication {
     private String company;
     private double value;
@@ -63,6 +61,6 @@ public class Publication {
                 drop,
                 variation,
                 date
-                );
+        );
     }
 }

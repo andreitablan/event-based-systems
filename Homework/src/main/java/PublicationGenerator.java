@@ -1,15 +1,13 @@
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-import org.json.*;
 
 public class PublicationGenerator implements Runnable{
-    private int numberOfMessages;
+    private int publicationCount;
     private List<Publication> publications = new ArrayList<>();
 
     private final String[] companies = {
@@ -26,8 +24,8 @@ public class PublicationGenerator implements Runnable{
     };
 
 
-    public PublicationGenerator(int numberOfMessages) {
-        this.numberOfMessages = numberOfMessages;
+    public PublicationGenerator(int publicationCount) {
+        this.publicationCount = publicationCount;
     }
 
     public Publication generatePublication() {
@@ -44,9 +42,9 @@ public class PublicationGenerator implements Runnable{
 
     public void runWithoutThreads() {
         long startTime = System.currentTimeMillis();
-        for (int i = 0; i < numberOfMessages; i++) {
-                Publication publication = generatePublication();
-                    publications.add(publication);
+        for (int i = 0; i < publicationCount; i++) {
+            Publication publication = generatePublication();
+            publications.add(publication);
         }
         try {
             long endTime = System.currentTimeMillis();
@@ -65,8 +63,8 @@ public class PublicationGenerator implements Runnable{
     @Override
     public void run() {
         long startTime = System.currentTimeMillis();
-        ExecutorService executor = Executors.newFixedThreadPool(numberOfMessages/200);
-        for (int i = 0; i < numberOfMessages; i++) {
+        ExecutorService executor = Executors.newFixedThreadPool(4);
+        for (int i = 0; i < publicationCount; i++) {
             executor.submit(() -> {
                 Publication publication = generatePublication();
                 synchronized (publications) {

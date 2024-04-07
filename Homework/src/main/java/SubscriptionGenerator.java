@@ -1,9 +1,5 @@
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -169,7 +165,7 @@ public class SubscriptionGenerator implements Runnable{
     private void writeSubscriptionsToFile(){
 
         try (FileWriter file = new FileWriter("subscriptions.txt")) {
-        for (Subscription subscription : subscriptions) {
+            for (Subscription subscription : subscriptions) {
                 file.write(subscription.toString());
             }
         } catch (IOException e) {
@@ -180,7 +176,12 @@ public class SubscriptionGenerator implements Runnable{
     @Override
     public void run() {
         long startTime = System.currentTimeMillis();
-        ExecutorService executor = Executors.newFixedThreadPool(subscriptionCount/200);
+        ExecutorService executor;
+        if (subscriptionCount >= 1000) {
+            executor = Executors.newFixedThreadPool(subscriptionCount / 100);
+        } else {
+            executor = Executors.newFixedThreadPool(4);
+        }
         Random random = new Random();
         executor.submit(() -> {
             generateCompanyFields(random);
