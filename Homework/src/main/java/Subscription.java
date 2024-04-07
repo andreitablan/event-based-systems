@@ -1,30 +1,50 @@
-
-import fields.Field;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class Subscription {
-    private List<Field> fields = new ArrayList<>();
+    private final Map<String, Condition> conditions = new TreeMap<>();
 
-    public void addField (Field field) {
-        fields.add(field);
-    }
-
-    public boolean containsFieldWithType(String type) {
-        for (Field f : fields) {
-            if (f.getType().equals(type))
-                return true;
-        }
-        return false;
-    }
-
-    public boolean fieldsEmpty() {
-        return fields.isEmpty();
+    public void addCondition(String field, String operator, String value) {
+        conditions.put(field, new Condition(operator, value));
     }
 
     @Override
     public String toString() {
-        return fields + "\n";
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        for (Map.Entry<String, Condition> entry : conditions.entrySet()) {
+            sb.append("(");
+            sb.append(entry.getKey());
+            sb.append(",");
+            sb.append(entry.getValue().getOperator());
+            sb.append(",");
+            sb.append(entry.getValue().getValue());
+            sb.append("); ");
+
+        }
+        sb.append("}\n");
+        return sb.toString();
+    }
+
+    static class Condition {
+        private final String operator;
+        private final String value;
+
+        public Condition(String operator, String value) {
+            this.operator = operator;
+            this.value = value;
+        }
+
+        public String getOperator() {
+            return operator;
+        }
+
+        public String getValue() {
+            return value;
+        }
+    }
+
+    public Map<String, Condition> getConditions() {
+        return conditions;
     }
 }

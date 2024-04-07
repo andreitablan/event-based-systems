@@ -1,0 +1,10 @@
+{(company,=,Apple); (date,=,11.11.2031); }
+{(company,=,Oracle); (value,=,0.5638728749785379); (variation,=,0.7658835854414603); }
+{(company,=,Slack); (date,=,1.01.2033); (value,=,0.43302190122666784); (variation,=,0.4545638016855642); }
+{(company,=,Twitter); (variation,=,0.5694877487743483); }
+{(company,<,Intel); (variation,=,0.5636468835766095); }
+{(company,=,Twitter); (date,=,7.07.2039); (value,=,0.19520579576171515); }
+{(date,=,9.09.2029); (variation,=,0.05680189399179181); }
+{(company,=,Microsoft); (drop,=,0.9445784159970789); (value,=,0.9376661450628649); (variation,=,0.4583858310547946); }
+{(company,=,Zoom); (date,=,8.08.2040); (value,=,0.6537755817757944); }
+{(company,<,Nvidia); (value,=,0.4678113682425932); (variation,=,0.028697162238517815); }

@@ -92,18 +92,10 @@ public class PublicationGenerator implements Runnable{
 
     private void writePublicationsToFile() throws IOException {
         ArrayList<String> results = new ArrayList<String>();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.MM.yyyy");
 
         synchronized (publications) {
             for (Publication publication : publications) {
-                String currentPublictationString = String.format("{(company,\"%s\");(value,%.2f);(drop,%.2f);(variation,%.2f);(date,%s)}\n", 
-                        publication.getCompany(),
-                        publication.getValue(),
-                        publication.getDrop(),
-                        publication.getVariation(),
-                        publication.getDate()
-                        );
-                results.add(currentPublictationString);
+                results.add(publication.toString());
             }
         }
         try (FileWriter file = new FileWriter("publications.txt")) {
