@@ -1,5 +1,9 @@
 import java.io.IOException;
+import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
@@ -30,6 +34,9 @@ public class Main {
         PublicationGenerator publicationGenerator = new PublicationGenerator(publicationCount);
         SubscriptionGenerator subscriptionGenerator = new SubscriptionGenerator(companyFrequency, valueFrequency, dropFrequency, variationFrequency, dateFrequency, subscriptionCount, equalOperatorFrequency);
 
+        int nrOfThreads = 4;
+        ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(nrOfThreads);
+
         switch(option){
             case 0:
                 System.out.println("Exiting...");
@@ -40,7 +47,16 @@ public class Main {
                 break;
             case 2:
                 System.out.println("Generating publications with threads");
-                publicationGenerator.run();
+
+                int splitCount = publicationCount / nrOfThreads;
+                int rest = publicationCount % nrOfThreads;
+                PublicationGenerator.clearFile();
+
+                for (int i = 0; i < nrOfThreads - 1; i++)
+                    executor.submit(new PublicationGenerator(splitCount));
+                executor.submit(new PublicationGenerator(splitCount + rest));
+
+                executor.shutdown();
                 break;
             case 3:
                 System.out.println("Generating subscriptions without threads");

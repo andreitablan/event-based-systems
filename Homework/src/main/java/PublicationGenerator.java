@@ -1,3 +1,4 @@
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
@@ -63,29 +64,23 @@ public class PublicationGenerator implements Runnable{
     @Override
     public void run() {
         long startTime = System.currentTimeMillis();
-        ExecutorService executor = Executors.newFixedThreadPool(4);
+
         for (int i = 0; i < publicationCount; i++) {
-            executor.submit(() -> {
-                Publication publication = generatePublication();
-                synchronized (publications) {
-                    publications.add(publication);
-                }
-            });
-
+            Publication publication = generatePublication();
+            publications.add(publication);
         }
-        executor.shutdown();
-        try {
-            executor.awaitTermination(1, TimeUnit.MINUTES);
-            long endTime = System.currentTimeMillis();
-            long elapsedTime = endTime - startTime;
-            System.out.println("Time taken: " + elapsedTime + " milliseconds");
-            writePublicationsToFile();
 
-            long endTimeAfterWritingPublications = System.currentTimeMillis();
-            long elapsedTimeAfterWritingPublications = endTimeAfterWritingPublications - startTime;
-            System.out.println("Time taken after writing publications: " + elapsedTimeAfterWritingPublications + " milliseconds");
-        } catch (InterruptedException | IOException e) {
-            e.printStackTrace();
+        long endTime = System.currentTimeMillis();
+        long elapsedTime = endTime - startTime;
+        System.out.println("Time taken: " + elapsedTime + " milliseconds");
+
+        synchronized (Main.class) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter("publications.txt", true))) {
+                for (Publication p : publications)
+                    writer.write(p.toString());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -101,6 +96,12 @@ public class PublicationGenerator implements Runnable{
             for(String result : results){
                 file.write(result);
             }
+        }
+    }
+
+    public static void clearFile() throws IOException {
+        try (FileWriter writer = new FileWriter("publications.txt")) {
+            writer.write("");
         }
     }
 }
