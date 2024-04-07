@@ -65,7 +65,7 @@ public class PublicationGenerator implements Runnable{
     @Override
     public void run() {
         long startTime = System.currentTimeMillis();
-        ExecutorService executor = Executors.newFixedThreadPool(2);
+        ExecutorService executor = Executors.newFixedThreadPool(numberOfMessages/200);
         for (int i = 0; i < numberOfMessages; i++) {
             executor.submit(() -> {
                 Publication publication = generatePublication();
@@ -73,6 +73,7 @@ public class PublicationGenerator implements Runnable{
                     publications.add(publication);
                 }
             });
+
         }
         executor.shutdown();
         try {

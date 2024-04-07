@@ -180,7 +180,7 @@ public class SubscriptionGenerator implements Runnable{
     @Override
     public void run() {
         long startTime = System.currentTimeMillis();
-        ExecutorService executor = Executors.newFixedThreadPool(50);
+        ExecutorService executor = Executors.newFixedThreadPool(subscriptionCount/200);
         Random random = new Random();
         executor.submit(() -> {
             generateCompanyFields(random);
