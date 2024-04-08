@@ -3,9 +3,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 import java.util.Random;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class PublicationGenerator implements Runnable{
     private int publicationCount;
@@ -41,7 +40,10 @@ public class PublicationGenerator implements Runnable{
         return new Publication(company, value, drop, variation, date);
     }
 
-    public void runWithoutThreads() {
+    /**
+     * Generates publications and writes them to a file
+     */
+    public void generatePublications() {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < publicationCount; i++) {
             Publication publication = generatePublication();
@@ -61,6 +63,27 @@ public class PublicationGenerator implements Runnable{
         }
     }
 
+    /**
+     * Generates publications and writes them to a file using multiple threads
+     * @throws IOException
+     */
+    public void generatePublicationsWithThreads() throws IOException {
+        int numberOfThreads = 4;
+        ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(numberOfThreads);
+        int splitCount = publicationCount / numberOfThreads;
+        int rest = publicationCount % numberOfThreads;
+        PublicationGenerator.clearFile();
+
+        for (int i = 0; i < numberOfThreads - 1; i++)
+            executor.submit(new PublicationGenerator(splitCount));
+        executor.submit(new PublicationGenerator(splitCount + rest));
+
+        executor.shutdown();
+    }
+
+    /**
+     * Run method for the thread
+     */
     @Override
     public void run() {
         long startTime = System.currentTimeMillis();

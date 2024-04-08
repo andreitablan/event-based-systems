@@ -1,14 +1,14 @@
 import java.io.IOException;
-import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
+        /**
+         * The user is asked to enter the number of publications and subscriptions to generate.
+         */
         int publicationCount = getInput("Enter the number of publications: ");
         int subscriptionCount = getInput("Enter the number of subscriptions: ");
         double companyFrequency = getInput("Enter company frequency: ");
@@ -20,6 +20,7 @@ public class Main {
 
         int option;
         do {
+            TimeUnit.SECONDS.sleep(1);
             option = getInput("0 to exit\n1 to generate publications without threads\n2 to generate publications with threads\n3 to generate subscriptions without threads\n4 to generate subscriptions with threads\nEnter a number: ");
             executeOption(option, publicationCount, subscriptionCount, companyFrequency, valueFrequency, dropFrequency, variationFrequency, dateFrequency, equalOperatorFrequency);
         } while (option != 0);
@@ -30,12 +31,22 @@ public class Main {
         return scanner.nextInt();
     }
 
+    /**
+     * This method executes the option selected by the user.
+     * @param option
+     * @param publicationCount
+     * @param subscriptionCount
+     * @param companyFrequency
+     * @param valueFrequency
+     * @param dropFrequency
+     * @param variationFrequency
+     * @param dateFrequency
+     * @param equalOperatorFrequency
+     * @throws IOException
+     */
     private static void executeOption(int option, int publicationCount, int subscriptionCount, double companyFrequency, double valueFrequency, double dropFrequency, double variationFrequency, double dateFrequency, double equalOperatorFrequency) throws IOException {
         PublicationGenerator publicationGenerator = new PublicationGenerator(publicationCount);
         SubscriptionGenerator subscriptionGenerator = new SubscriptionGenerator(companyFrequency, valueFrequency, dropFrequency, variationFrequency, dateFrequency, subscriptionCount, equalOperatorFrequency);
-
-        int nrOfThreads = 4;
-        ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(nrOfThreads);
 
         switch(option){
             case 0:
@@ -43,20 +54,11 @@ public class Main {
                 break;
             case 1:
                 System.out.println("Generating publications without threads");
-                publicationGenerator.runWithoutThreads();
+                publicationGenerator.generatePublications();
                 break;
             case 2:
                 System.out.println("Generating publications with threads");
-
-                int splitCount = publicationCount / nrOfThreads;
-                int rest = publicationCount % nrOfThreads;
-                PublicationGenerator.clearFile();
-
-                for (int i = 0; i < nrOfThreads - 1; i++)
-                    executor.submit(new PublicationGenerator(splitCount));
-                executor.submit(new PublicationGenerator(splitCount + rest));
-
-                executor.shutdown();
+                publicationGenerator.generatePublicationsWithThreads();
                 break;
             case 3:
                 System.out.println("Generating subscriptions without threads");

@@ -52,6 +52,10 @@ public class SubscriptionGenerator implements Runnable{
         }
     }
 
+    /**
+     * Generates subscriptions and writes them to a file
+     * @throws IOException
+     */
     public void generateSubscriptions() throws IOException {
         long startTime = System.currentTimeMillis();
 
@@ -173,6 +177,9 @@ public class SubscriptionGenerator implements Runnable{
         }
     }
 
+    /**
+     * Generates subscriptions and writes them to a file using multiple threads
+     */
     @Override
     public void run() {
         long startTime = System.currentTimeMillis();
