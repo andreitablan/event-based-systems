@@ -20,9 +20,9 @@ _Subscriptie:_{(company,=,"Google");(value,>=,90);(variation,<,0.8)} - Unele cam
 #### Cu Paralelizare (4 thread-uri)
 - Numărul de Threads: 4
 - Numărul de Mesaje Generate: 1.000.000
-- Timpul de Execuție Mediu: ~500 milisecunde
+- Timpul de Execuție Mediu pentru fiecare thread: ~115 milisecunde
 - Specificațiile Procesorului: *Intel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz   1.20 GHz*
-![image](https://github.com/andreitablan/event-based-systems/assets/76064833/4a4e03d5-f108-4443-bed6-a90b2bc44771)
+![image](https://github.com/andreitablan/event-based-systems/assets/76064833/58683391-392e-4687-8d24-b5ee327a6f50)
 ### Subscriptie
 #### Fără Paralelizare (1 thread)
 - Numărul de Threads: 1
