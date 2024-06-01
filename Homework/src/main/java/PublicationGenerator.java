@@ -43,24 +43,12 @@ public class PublicationGenerator implements Runnable{
     /**
      * Generates publications and writes them to a file
      */
-    public void generatePublications() {
-        long startTime = System.currentTimeMillis();
+    public List<Publication> generatePublications() {
         for (int i = 0; i < publicationCount; i++) {
             Publication publication = generatePublication();
             publications.add(publication);
         }
-        try {
-            long endTime = System.currentTimeMillis();
-            long elapsedTime = endTime - startTime;
-            System.out.println("Time taken: " + elapsedTime + " milliseconds");
-            writePublicationsToFile();
-
-            long endTimeAfterWritingPublications = System.currentTimeMillis();
-            long elapsedTimeAfterWritingPublications = endTimeAfterWritingPublications - startTime;
-            System.out.println("Time taken after writing publications: " + elapsedTimeAfterWritingPublications + " milliseconds");
-        } catch ( IOException e) {
-            e.printStackTrace();
-        }
+        return publications;
     }
 
     /**

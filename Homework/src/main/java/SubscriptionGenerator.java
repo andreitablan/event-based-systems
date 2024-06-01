@@ -76,9 +76,7 @@ public class SubscriptionGenerator implements Runnable{
      * Generates subscriptions and writes them to a file
      * @throws IOException
      */
-    public void generateSubscriptions() throws IOException {
-        long startTime = System.currentTimeMillis();
-
+    public Subscription[] generateSubscriptions() throws IOException {
         Random random = new Random();
         generateCompanyFields(random);
         generateValueFields(random);
@@ -86,14 +84,7 @@ public class SubscriptionGenerator implements Runnable{
         generateVariationFields(random);
         generateDateFields(random);
 
-        long endTime = System.currentTimeMillis();
-        long elapsedTime = endTime - startTime;
-        System.out.println("Time taken: " + elapsedTime + " milliseconds");
-        writeSubscriptionsToFile();
-
-        long endTimeAfterWritingSubscriptions = System.currentTimeMillis();
-        long elapsedTimeAfterWritingSubscriptions = endTimeAfterWritingSubscriptions - startTime;
-        System.out.println("Time taken after writing subscriptions: " + elapsedTimeAfterWritingSubscriptions + " milliseconds");
+        return subscriptions;
     }
 
     private void generateDateFields(Random random) {
@@ -185,24 +176,11 @@ public class SubscriptionGenerator implements Runnable{
         }
     }
 
-
-    private void writeSubscriptionsToFile(){
-
-        try (FileWriter file = new FileWriter("subscriptions.txt")) {
-            for (Subscription subscription : subscriptions) {
-                file.write(subscription.toString());
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     /**
      * Generates subscriptions and writes them to a file using multiple threads
      */
     @Override
     public void run() {
-        long startTime = System.currentTimeMillis();
         ExecutorService executor;
         if (subscriptionCount >= 1000) {
             executor = Executors.newFixedThreadPool(subscriptionCount / 100);
@@ -226,18 +204,5 @@ public class SubscriptionGenerator implements Runnable{
             generateDateFields(random);
         });
         executor.shutdown();
-        try {
-            executor.awaitTermination(1, TimeUnit.MINUTES);
-            long endTime = System.currentTimeMillis();
-            long elapsedTime = endTime - startTime;
-            System.out.println("Time taken: " + elapsedTime + " milliseconds");
-            writeSubscriptionsToFile();
-
-            long endTimeAfterWritingSubscriptions = System.currentTimeMillis();
-            long elapsedTimeAfterWritingSubscriptions = endTimeAfterWritingSubscriptions - startTime;
-            System.out.println("Time taken after writing subscriptions: " + elapsedTimeAfterWritingSubscriptions + " milliseconds");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 }
