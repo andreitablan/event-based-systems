@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07fb8ec0-8c07-42c7-82b4-31571326145c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/publications.txt" beforeDir="false" afterPath="$PROJECT_DIR$/publications.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PublicationGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PublicationGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Subscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Subscription.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SubscriptionGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SubscriptionGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/subscriptions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/subscriptions.txt" afterDir="false" />
     </list>
@@ -87,6 +87,7 @@
       <workItem from="1712330846003" duration="732000" />
       <workItem from="1712331599941" duration="602000" />
       <workItem from="1712480787499" duration="9753000" />
+      <workItem from="1717236795939" duration="390000" />
     </task>
     <servers />
   </component>

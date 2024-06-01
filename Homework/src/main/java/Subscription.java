@@ -46,4 +46,7 @@ public class Subscription {
     public Map<String, Condition> getConditions() {
         return conditions;
     }
+    public boolean isEmpty(){
+        return conditions.isEmpty();
+    }
 }

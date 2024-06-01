@@ -52,6 +52,26 @@ public class SubscriptionGenerator implements Runnable{
         }
     }
 
+    private int getEmptySubscriptionIndex(Random random){
+        int j=0;
+        boolean isNotEmpty = true;
+        while(j<subscriptionCount && isNotEmpty == true){
+            if(subscriptions[j].isEmpty()){
+                isNotEmpty = false;
+                break;
+            }
+            j++;
+        }
+        int index;
+        if(!isNotEmpty)
+        {
+            index = j;
+        }
+        else {
+            index = random.nextInt(subscriptionCount);
+        }
+        return index;
+    }
     /**
      * Generates subscriptions and writes them to a file
      * @throws IOException
@@ -79,7 +99,7 @@ public class SubscriptionGenerator implements Runnable{
     private void generateDateFields(Random random) {
         double dateEqualNotUsed = equalOperatorFreq * dateFreq;
         for(int i = 0; i < dateFreq; i++){
-            int index = random.nextInt( subscriptionCount);
+            int index = getEmptySubscriptionIndex(random);
             if(subscriptions[index].getConditions().containsKey("date")){
                 i--;
                 continue;
@@ -97,7 +117,7 @@ public class SubscriptionGenerator implements Runnable{
     private void generateVariationFields(Random random) {
         double variationEqualNotUsed = equalOperatorFreq * variationFreq;
         for(int i = 0; i < variationFreq; i++){
-            int index = random.nextInt( subscriptionCount);
+            int index = getEmptySubscriptionIndex(random);
             if(subscriptions[index].getConditions().containsKey("variation")){
                 i--;
                 continue;
@@ -115,7 +135,7 @@ public class SubscriptionGenerator implements Runnable{
     private void generateDropFields(Random random) {
         double dropEqualNotUsed = equalOperatorFreq * dropFreq;
         for(int i = 0; i < dropFreq; i++){
-            int index = random.nextInt( subscriptionCount);
+            int index = getEmptySubscriptionIndex(random);
             if(subscriptions[index].getConditions().containsKey("drop")){
                 i--;
                 continue;
@@ -133,7 +153,7 @@ public class SubscriptionGenerator implements Runnable{
     private void generateValueFields(Random random) {
         double valueEqualNotUsed = equalOperatorFreq * valueFreq;
         for(int i = 0; i < valueFreq; i++){
-            int index = random.nextInt( subscriptionCount);
+            int index = getEmptySubscriptionIndex(random);
             if(subscriptions[index].getConditions().containsKey("value")){
                 i--;
                 continue;
@@ -151,7 +171,7 @@ public class SubscriptionGenerator implements Runnable{
     private void generateCompanyFields(Random random) {
         double companyEqualNotUsed = equalOperatorFreq * companyFreq;
         for(int i = 0; i < companyFreq; i++) {
-            int index = random.nextInt( subscriptionCount);
+            int index = getEmptySubscriptionIndex(random);
             if(subscriptions[index].getConditions().containsKey("company")){
                 i--;
                 continue;
