@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
@@ -23,8 +24,9 @@ public class Subscriber implements Runnable {
     public void run() {
         SubscriptionGenerator generator = new SubscriptionGenerator(companyFreq, valueFreq, dropFreq, variationFreq, dateFreq, subscriptionCount, equalOperatorFreq);
         try {
-            generator.generateSubscriptions();
-            for (Subscription subscription : generator.generateSubscriptions()) {
+            Subscription[] subscriptions = generator.generateSubscriptions();
+            for (Subscription subscription : subscriptions) {
+                System.out.println("subscription " + subscription);
                 loadBalancer.sendSubscription(this, subscription);
             }
         } catch (IOException e) {
@@ -33,9 +35,9 @@ public class Subscriber implements Runnable {
     }
 
     public void processResult(Subscription subscription, Publication publication){
-        System.out.println("Match between subscription and publication");
-        System.out.println("Subscription: " + subscription.toString());
-        System.out.println("Publication: " + publication.toString());
-        System.out.println("------------------------------------------");
+        System.out.println("Match between subscription and publication" +
+                "\nSubscription: " + subscription.toString() +
+                "\nPublication: " + publication.toString() +
+                "------------------------------------------");
     }
 }

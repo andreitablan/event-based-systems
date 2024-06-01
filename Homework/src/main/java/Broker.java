@@ -6,10 +6,18 @@ public class Broker {
     private Map<Subscriber, List<Subscription>> subscriptions = new HashMap<>();
 
     public void receiveSubscription(Subscriber subscriber, Subscription subscription) {
-        subscriptions.get(subscriber).add(subscription);
+        if(subscriptions.get(subscriber) != null){
+            subscriptions.get(subscriber).add(subscription);
+            return;
+        }
+
+        List<Subscription> subscriptionsList = new ArrayList<>();
+        subscriptionsList.add(subscription);
+        subscriptions.put(subscriber, subscriptionsList);
     }
 
     public void receivePublication(Publication publication) {
+        System.out.println("publication" + publication);
         processPublication(publication);
     }
 
