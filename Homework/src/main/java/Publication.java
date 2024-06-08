@@ -4,6 +4,8 @@ public class Publication {
     private double drop;
     private double variation;
     private String date;
+    private long timestamp;  // Added to record the time when the publication was created.
+
 
     public Publication(String company, double value, double drop, double variation, String date) {
         this.company = company;
@@ -11,6 +13,7 @@ public class Publication {
         this.drop = drop;
         this.variation = variation;
         this.date = date;
+        this.timestamp = System.nanoTime();
     }
 
     public String getCompany() {
@@ -62,5 +65,9 @@ public class Publication {
                 variation,
                 date
         );
+    }
+
+    public long getTimestamp() {
+        return timestamp;
     }
 }

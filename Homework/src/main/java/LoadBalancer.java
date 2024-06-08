@@ -25,6 +25,7 @@ public class LoadBalancer {
 
         int listSize = brokers.size();
 
+        // Find the broker with the least number of subscriptions
         for(int i = 0; i < listSize; i++){
             Broker broker = brokers.get(i);
 
@@ -34,13 +35,21 @@ public class LoadBalancer {
                 brokerIndex = i;
             }
         }
+        // Round-robin distribution logic
+        // Find the next broker in the round-robin sequence for this subscriber
+        int nextBrokerIndex = (brokers.indexOf(brokers.get(brokerIndex)) + 1) % brokers.size();
+        this.brokers.get(nextBrokerIndex).receiveSubscription(subscriber, subscription);
 
-        this.brokers.get(brokerIndex).receiveSubscription(subscriber, subscription);
+        //this.brokers.get(brokerIndex).receiveSubscription(subscriber, subscription);
     }
 
     public void sendPublication(Publication publication){
         for( Broker broker: brokers){
             broker.receivePublication(publication);
         }
+    }
+
+    public List<Broker> getBrokers() {
+        return brokers;
     }
 }

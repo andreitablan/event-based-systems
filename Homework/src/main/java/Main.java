@@ -6,20 +6,25 @@ import java.util.concurrent.TimeUnit;
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        int publicationCount = 10;
-        int subscriptionCount = 10;
+        int publicationCount = 10000;
+        int subscriptionCount = 10000;
         double companyFrequency = 20;
         double valueFrequency = 20;
         double dropFrequency = 20;
         double variationFrequency = 20;
         double dateFrequency = 30;
         double equalOperatorFrequency = 70;
+        int evaluationDurationMinutes = 3;
 
         LoadBalancer loadBalancer = LoadBalancer.getInstance();
 
-        loadBalancer.addBroker(new Broker());
-        loadBalancer.addBroker(new Broker());
-        loadBalancer.addBroker(new Broker());
+        Broker broker1 = new Broker();
+        Broker broker2 = new Broker();
+        Broker broker3 = new Broker();
+
+        loadBalancer.addBroker(broker1);
+        loadBalancer.addBroker(broker2);
+        loadBalancer.addBroker(broker3);
 
         // Create subscribers
         Subscriber subscriber2 = new Subscriber( subscriptionCount, companyFrequency, valueFrequency, dropFrequency, variationFrequency, dateFrequency, equalOperatorFrequency);
@@ -42,6 +47,9 @@ public class Main {
         executor.awaitTermination(1, TimeUnit.MINUTES);
 
         System.out.println("Simulation complete.");
+        System.out.println("=============================");
+        Evaluation evaluation = new Evaluation();
+        evaluation.evaluate(new Broker[]{broker1, broker2, broker3}, publicationCount, evaluationDurationMinutes);
     }
 }
     //PublicationGenerator publicationGenerator = new PublicationGenerator(publicationCount);
