@@ -10,7 +10,6 @@ public class Subscriber implements Runnable {
     private double companyFreq, valueFreq, dropFreq, variationFreq, dateFreq, equalOperatorFreq;
     private List<Long> latencies = new ArrayList<>();  // Store delivery latencies for evaluation.
     private int receivedCount = 0;  // Count of received publications for evaluation.
-
     public Subscriber( int subscriptionCount, double companyFreq, double valueFreq, double dropFreq,
                       double variationFreq, double dateFreq, double equalOperatorFreq) {
 

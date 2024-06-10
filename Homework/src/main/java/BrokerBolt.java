@@ -15,26 +15,18 @@ public class BrokerBolt extends BaseBasicBolt {
     private List<Subscription> subscriptions;
     private OutputCollector collector;
 
-    @Override
     public void prepare(Map stormConf, TopologyContext context, OutputCollector collector) {
         this.collector = collector;
         this.subscriptions = new ArrayList<>();
     }
 
-    @Override
     public void execute(Tuple input, BasicOutputCollector collector) {
         String streamId = input.getSourceStreamId();
         if (streamId.equals("subscriptions")) {
             Subscription subscription = (Subscription) input.getValueByField("subscription");
             subscriptions.add(subscription);
         } else if (streamId.equals("publications")) {
-            Publication publication = new Publication(
-                    input.getStringByField("company"),
-                    input.getDoubleByField("value"),
-                    input.getDoubleByField("drop"),
-                    input.getDoubleByField("variation"),
-                    input.getStringByField("date")
-            );
+            Publication publication = (Publication) input.getValueByField("publication");
 
             for (Subscription subscription : subscriptions) {
                 if (matches(subscription, publication)) {
@@ -59,7 +51,6 @@ public class BrokerBolt extends BaseBasicBolt {
         return true;
     }
 
-    @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
         declarer.declareStream("matches", new Fields("subscription", "publication"));
     }

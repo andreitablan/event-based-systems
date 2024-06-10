@@ -18,20 +18,14 @@ public class SubscriptionSpout extends BaseRichSpout {
         this.subscriptionGenerator = new SubscriptionGenerator(companyFreq, valueFreq, dropFreq, variationFreq, dateFreq, subscriptionCount, equalOperatorFreq);
     }
 
-    @Override
     public void open(Map<String, Object> conf, TopologyContext context, SpoutOutputCollector collector) {
         this.collector = collector;
-        try {
-            subscriptionGenerator.generateSubscriptions();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
-    @Override
     public void nextTuple() {
         try {
             for (Subscription subscription : subscriptionGenerator.generateSubscriptions()) {
+
                 collector.emit(new Values(subscription));
             }
         } catch (IOException e) {
@@ -45,7 +39,6 @@ public class SubscriptionSpout extends BaseRichSpout {
         }
     }
 
-    @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
         declarer.declare(new Fields("subscription"));
     }

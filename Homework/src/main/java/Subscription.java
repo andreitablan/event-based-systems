@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Subscription {
     private final Map<String, Condition> conditions = new TreeMap<>();
+    private UUID subscriberId;
 
     public void addCondition(String field, String operator, String value) {
         conditions.put(field, new Condition(operator, value));
@@ -48,5 +49,13 @@ public class Subscription {
     }
     public boolean isEmpty(){
         return conditions.isEmpty();
+    }
+
+    public UUID getSubscriberId() {
+        return subscriberId;
+    }
+
+    public void setSubscriberId(UUID subscriberId) {
+        this.subscriberId = subscriberId;
     }
 }

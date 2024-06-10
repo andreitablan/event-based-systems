@@ -1,6 +1,7 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
+import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -27,6 +28,8 @@ public class SubscriptionGenerator implements Runnable{
 
     private Subscription[] subscriptions;
 
+    private UUID id;
+
 
     public SubscriptionGenerator(
             double companyFreq,
@@ -46,9 +49,10 @@ public class SubscriptionGenerator implements Runnable{
 
         subscriptions = new Subscription[subscriptionCount];
         this.equalOperatorFreq = equalOperatorFreq/100;
-
+        this.id = UUID.randomUUID();
         for(int i = 0; i < subscriptionCount; i++){
             subscriptions[i] = new Subscription();
+            subscriptions[i].setSubscriberId(this.id);
         }
     }
 
