@@ -5,12 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07fb8ec0-8c07-42c7-82b4-31571326145c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/newImpl/Broker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/newImpl/BrokerNetwork.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/newImpl/PubSubSystem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/newImpl/Publication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/newImpl/PublicationGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/newImpl/Subscriber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/newImpl/Subscription.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/newImpl/SubscriptionGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/publications.txt" beforeDir="false" afterPath="$PROJECT_DIR$/publications.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Subscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Subscription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SubscriptionGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SubscriptionGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/subscriptions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/subscriptions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/old/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Publication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/old/Publication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PublicationGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/old/PublicationGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Subscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/old/Subscription.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SubscriptionGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/old/SubscriptionGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,10 +35,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 3
-}</component>
   <component name="ProjectId" id="2eeApGfcQSLOhfhwdh1GMPM85ob" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -39,38 +43,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Facultate/An2-master/PCD/event-based-systems/Homework&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+  <component name="RunManager" selected="Application.PubSubSystem">
+    <configuration name="BrokerNetwork" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="newImpl.BrokerNetwork" />
       <module name="Homework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="newImpl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="old.Main" />
+      <module name="Homework" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PubSubSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="newImpl.PubSubSystem" />
+      <module name="Homework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="newImpl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PubSubSystem" />
+        <item itemvalue="Application.BrokerNetwork" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -96,5 +106,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/newImpl/PubSubSystem.java</url>
+          <line>5</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

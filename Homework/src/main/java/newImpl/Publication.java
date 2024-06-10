@@ -1,3 +1,5 @@
+package newImpl;
+
 public class Publication {
     private String company;
     private double value;
@@ -17,50 +19,25 @@ public class Publication {
         return company;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
     public double getValue() {
         return value;
-    }
-
-    public void setValue(double value) {
-        this.value = value;
     }
 
     public double getDrop() {
         return drop;
     }
 
-    public void setDrop(double drop) {
-        this.drop = drop;
-    }
-
     public double getVariation() {
         return variation;
-    }
-
-    public void setVariation(double variation) {
-        this.variation = variation;
     }
 
     public String getDate() {
         return date;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     @Override
     public String toString() {
         return String.format("{(company,\"%s\");(value,%.2f);(drop,%.2f);(variation,%.2f);(date,%s)}\n",
-                company,
-                value,
-                drop,
-                variation,
-                date
-        );
+                company, value, drop, variation, date);
     }
 }
