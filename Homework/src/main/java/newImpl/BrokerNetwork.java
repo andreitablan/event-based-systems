@@ -28,26 +28,43 @@ public class BrokerNetwork {
 
     public void publish(Publication publication) {
         Set<Integer> visitedBrokers = new HashSet<>();
-        brokers.get(0).routePublication(publication, visitedBrokers);  // Start routing from the first broker
+        long startTime = System.nanoTime();
+        brokers.get(0).routePublication(publication, visitedBrokers, startTime);  // Start routing from the first broker
     }
 
+    // for evaluation purposes
     public static void main(String[] args) {
-        BrokerNetwork network = new BrokerNetwork(3);
+        // Parameters
+        int numberOfBrokers = 3;
+        int numberOfPublications = 10000;
+        long evaluationInterval = 3 * 60 * 1000; // 3 minutes in milliseconds
+
+        BrokerNetwork network = new BrokerNetwork(numberOfBrokers);
 
         // Initialize subscribers
         Subscriber subscriber1 = new Subscriber(1, network);
         Subscriber subscriber2 = new Subscriber(2, network);
         Subscriber subscriber3 = new Subscriber(3, network);
 
-        // Subscribers subscribe to the network
-        subscriber1.subscribe(0.9, 0.9, 0.9, 0.7);
-        subscriber2.subscribe(0.8, 0.7, 0.6, 0.5);
-        subscriber3.subscribe(0.7, 0.8, 0.9, 0.6);
+        // Subscribe with 10,000 simple subscriptions
+        for (int i = 0; i < 10000; i++) {
+            if (i % 3 == 0) {
+                subscriber1.subscribe(0.9, 0.9, 0.9, 0.7);
+            } else if (i % 3 == 1) {
+                subscriber2.subscribe(0.8, 0.7, 0.6, 0.5);
+            } else {
+                subscriber3.subscribe(0.7, 0.8, 0.9, 0.6);
+            }
+        }
 
-        // Generate and publish publications
-        for (int i = 0; i < 10; i++) {
+        // Start publication generation
+        long startTime = System.currentTimeMillis();
+        while (System.currentTimeMillis() - startTime < evaluationInterval) {
             Publication pub = PublicationGenerator.generateRandomPublication();
             network.publish(pub);
         }
+
+        // Print statistics
+        EvaluationLogger.printStatistics();
     }
 }

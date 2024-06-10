@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07fb8ec0-8c07-42c7-82b4-31571326145c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/newImpl/Broker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newImpl/Broker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newImpl/BrokerNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newImpl/BrokerNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newImpl/PubSubSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newImpl/PubSubSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newImpl/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newImpl/Subscriber.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +31,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunManager" selected="Application.PubSubSystem">
+  <component name="RunManager" selected="Application.BrokerNetwork">
     <configuration name="BrokerNetwork" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="newImpl.BrokerNetwork" />
       <module name="Homework" />
@@ -69,8 +67,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PubSubSystem" />
         <item itemvalue="Application.BrokerNetwork" />
+        <item itemvalue="Application.PubSubSystem" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
