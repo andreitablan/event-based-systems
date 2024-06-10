@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07fb8ec0-8c07-42c7-82b4-31571326145c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/newImpl/Broker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/newImpl/BrokerNetwork.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/newImpl/PubSubSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/newImpl/Publication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/newImpl/PublicationGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/newImpl/Subscriber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/newImpl/Subscription.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/newImpl/SubscriptionGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/old/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Publication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/old/Publication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PublicationGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/old/PublicationGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Subscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/old/Subscription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SubscriptionGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/old/SubscriptionGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/newImpl/Broker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newImpl/Broker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/newImpl/BrokerNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newImpl/BrokerNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/newImpl/PubSubSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newImpl/PubSubSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/newImpl/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newImpl/Subscriber.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +93,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

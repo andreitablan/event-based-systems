@@ -6,9 +6,9 @@ public class PubSubSystem {
         BrokerNetwork network = new BrokerNetwork(3);
 
         // Initialize subscribers
-        Subscriber subscriber1 = new Subscriber("Sub1", network);
-        Subscriber subscriber2 = new Subscriber("Sub2", network);
-        Subscriber subscriber3 = new Subscriber("Sub3", network);
+        Subscriber subscriber1 = new Subscriber(1, network);
+        Subscriber subscriber2 = new Subscriber(2, network);
+        Subscriber subscriber3 = new Subscriber(3, network);
 
         // Subscribers subscribe to the network
         subscriber1.subscribe(0.9, 0.9, 0.9, 0.7);
