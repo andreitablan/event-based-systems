@@ -6,8 +6,8 @@ import java.util.concurrent.TimeUnit;
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        int publicationCount = 10000;
-        int subscriptionCount = 10000;
+        int publicationCount = 100;
+        int subscriptionCount = 100;
         double companyFrequency = 20;
         double valueFrequency = 20;
         double dropFrequency = 20;
