@@ -46,10 +46,13 @@ public class Main {
 
         executor.awaitTermination(1, TimeUnit.MINUTES);
 
+
         System.out.println("Simulation complete.");
         System.out.println("=============================");
+        /*
         Evaluation evaluation = new Evaluation();
         evaluation.evaluate(new Broker[]{broker1, broker2, broker3}, publicationCount, evaluationDurationMinutes);
+        */
     }
 }
     //PublicationGenerator publicationGenerator = new PublicationGenerator(publicationCount);
