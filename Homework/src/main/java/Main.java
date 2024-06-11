@@ -14,10 +14,11 @@ public class Main {
         double variationFrequency = 20;
         double dateFrequency = 30;
         double equalOperatorFrequency = 70;
-        int evaluationDurationMinutes = 3;
+        int evaluationDurationMinutes = 1;
 
         LoadBalancer loadBalancer = LoadBalancer.getInstance();
 
+        //Create brokers
         Broker broker1 = new Broker();
         Broker broker2 = new Broker();
         Broker broker3 = new Broker();
@@ -49,11 +50,7 @@ public class Main {
 
         System.out.println("Simulation complete.");
         System.out.println("=============================");
-        /*
         Evaluation evaluation = new Evaluation();
         evaluation.evaluate(new Broker[]{broker1, broker2, broker3}, publicationCount, evaluationDurationMinutes);
-        */
     }
 }
-    //PublicationGenerator publicationGenerator = new PublicationGenerator(publicationCount);
-    //SubscriptionGenerator subscriptionGenerator = new SubscriptionGenerator(companyFrequency, valueFrequency, dropFrequency, variationFrequency, dateFrequency, subscriptionCount, equalOperatorFrequency);

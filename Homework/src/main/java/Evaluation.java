@@ -33,7 +33,7 @@ public class Evaluation {
         // Print evaluation results
         System.out.println("Evaluation Results:");
         System.out.println("Total Publications Delivered: " + totalDeliveredPublications);
-        System.out.println("Average Latency (ns): " + averageLatency);
+        System.out.println("Average Latency (ml): " + averageLatency / 1_000_000.0);
         System.out.println("Total Publications Generated: " + publicationCount);
 
         // Matching rate calculations.

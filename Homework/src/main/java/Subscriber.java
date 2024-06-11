@@ -44,12 +44,12 @@ public class Subscriber implements Runnable {
         latencies.add(latency);
         receivedCount++;
 
-        System.out.println("------------------------------------------" +
+        System.out.println("\n------------------------------------------" +
                 "\nMatch between subscription and publication" +
                 "\nSubscription: " + subscription.toString() +
                 "\nPublication: " + publication.toString() +
-                "\nLatency (ns): " + latency +
-                "------------------------------------------");
+                "\nLatency (ml): " + latency/ 1_000_000.0 +
+                "\n------------------------------------------\n");
     }
     public List<Long> getLatencies() {
         return latencies;
