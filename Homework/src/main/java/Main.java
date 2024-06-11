@@ -6,8 +6,8 @@ import java.util.concurrent.TimeUnit;
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        int publicationCount = 10000;
-        int subscriptionCount = 10000;
+        int publicationCount = 100;
+        int subscriptionCount = 100;
         double companyFrequency = 20;
         double valueFrequency = 20;
         double dropFrequency = 20;
@@ -46,10 +46,13 @@ public class Main {
 
         executor.awaitTermination(1, TimeUnit.MINUTES);
 
+
         System.out.println("Simulation complete.");
         System.out.println("=============================");
+        /*
         Evaluation evaluation = new Evaluation();
         evaluation.evaluate(new Broker[]{broker1, broker2, broker3}, publicationCount, evaluationDurationMinutes);
+        */
     }
 }
     //PublicationGenerator publicationGenerator = new PublicationGenerator(publicationCount);
