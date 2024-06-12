@@ -1,3 +1,14 @@
+# [Sisteme bazate pe evenimente - Proiect](https://edu.info.uaic.ro/sisteme-bazate-pe-evenimente/eval.html)
+
+## Raport de evaluare a solutiei
+Pentru 10000 de subscriptii simple, sunt afisate in urmatoarele imagini: 
+- a) Cate publicatii se livreaza cu succes intr-un interval de 3 minute.
+- b) Latenta medie de livrare a unei publicatii. Numarul de publicatii generate. 
+- c.1) Fig 2 - operatorul de egalidate 25%
+![25 equal](https://github.com/andreitablan/event-based-systems/assets/76064833/8e1b0421-9e42-446e-a5bd-1a2e83a8b7ca)
+- c.2) Fig 3 - operatorul de egalitate 100%
+![100 equal](https://github.com/andreitablan/event-based-systems/assets/76064833/fc36ce0b-9c7d-4dbc-83fe-3f4280825a31)
+
 # [Sisteme bazate pe evenimente - Tema](https://edu.info.uaic.ro/sisteme-bazate-pe-evenimente/eval.html)
 
 ## Descriere
